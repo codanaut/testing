@@ -33,7 +33,7 @@ function formdata(){
       let registrations = data.registrations
       let approval_required = data.approval_required
       let invites_enabled = data.invites_enabled
-      document.getElementById("serverName").innerHTML = serverName;
+      document.getElementById("serverName").innerHTML = '<a href=https://' + serverName + '>' + serverName + '</a>';
       document.getElementById("description").innerHTML = description;
       document.getElementById("version").innerHTML = "Server Version: " + version;
       document.getElementById("user_count").innerHTML = "Users: " + users + " ~ ";
