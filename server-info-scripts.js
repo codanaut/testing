@@ -33,19 +33,26 @@ function formdata(){
       let registrations = data.registrations
       let approval_required = data.approval_required
       let invites_enabled = data.invites_enabled
+      let thumbnail = data.thumbnail
+      document.getElementById("imgSRC").src = thumbnail;
+      document.getElementById("imgLNK").href = "https://" + serverName;
       document.getElementById("serverName").innerHTML = '<a href=https://' + serverName + '>' + serverName + '</a>';
       document.getElementById("description").innerHTML = description;
       document.getElementById("version").innerHTML = "Server Version: " + version;
-      document.getElementById("user_count").innerHTML = "Users: " + users + " ~ ";
-      document.getElementById("status_count").innerHTML = "Status Count: " + status_count + " ~ ";
-      document.getElementById("domain_count").innerHTML = "Domain Count: " + domain_count;
-      document.getElementById("registrations").innerHTML = "Registrations Enabled: " + registrations + " ~ ";
-      document.getElementById("approval_required").innerHTML = "Approval Required: " + approval_required + " ~ ";
+      document.getElementById("user_count").innerHTML = "Users: " + users;
+      document.getElementById("status_count").innerHTML = "Toots Posted: " + status_count;
+      document.getElementById("domain_count").innerHTML = "Domains Connected: " + domain_count;
+      document.getElementById("registrations").innerHTML = "Registrations Enabled: " + registrations;
+      document.getElementById("approval_required").innerHTML = "Approval Required: " + approval_required;
       document.getElementById("invites_enabled").innerHTML = "Invites Enabled: " + invites_enabled;
+      document.getElementById("about").href = "https://" + serverName + "/about";
+      document.getElementById("local").href = "https://" + serverName + "/public/local";
+      document.getElementById("federated").href = "https://" + serverName + "/public";
     })
     .catch((err) => console.log(err));
-
-  }
+  
+  TestsFunction()
+  }//ends main click function
   
   // make get request
   function getUrl(url) {
@@ -67,3 +74,8 @@ function formdata(){
       document.getElementById("enterBtn").click();
     }
   });
+
+  function TestsFunction() {
+    var T = document.getElementById("serverCard");
+    T.style.display = "block";  // <-- Set it to block
+}
