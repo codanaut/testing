@@ -48,10 +48,17 @@ function formdata(){
       document.getElementById("about").href = "https://" + serverName + "/about";
       document.getElementById("local").href = "https://" + serverName + "/public/local";
       document.getElementById("federated").href = "https://" + serverName + "/public";
+      hidewarningFunction()
+      displayCardFunction()
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      console.log(err)
+      hideCardFunction()
+      document.getElementById("error").innerHTML = "Failed to connect";
+      displaywarningFunction()
+    });
   
-  TestsFunction()
+  
   }//ends main click function
   
   // make get request
@@ -75,7 +82,21 @@ function formdata(){
     }
   });
 
-  function TestsFunction() {
+  function displayCardFunction() {
     var T = document.getElementById("serverCard");
     T.style.display = "block";  // <-- Set it to block
-}
+  }
+
+  function hideCardFunction() {
+    var T = document.getElementById("serverCard");
+    T.style.display = "none";  // <-- Set it to block
+  }
+
+  function displaywarningFunction() {
+    var errorDiv = document.getElementById("errorDiv");
+    errorDiv.style.display = "block";  // <-- Set it to block
+  }
+  function hidewarningFunction() {
+    var hideerrorDiv = document.getElementById("errorDiv");
+    hideerrorDiv.style.display = "none";  // <-- Set it to block
+  }
