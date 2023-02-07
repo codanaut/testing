@@ -1,26 +1,26 @@
-function formdata(){
-  var searchText= document.getElementById("searchText").value;
+function formdata() {
+  var searchText = document.getElementById("searchText").value;
 
   var apiPath = "/api/v1/instance"
-  
+
   try {
     var domain = (new URL(searchText))
     var url = domain.protocol + "//" + domain.hostname + apiPath
   }
-  catch(err) {
+  catch (err) {
     try {
       var fixDomain = "https:" + "//" + searchText
       var newdomain = (new URL(fixDomain))
       var url = newdomain.protocol + "//" + newdomain.hostname + apiPath
     }
-    catch(err) {
+    catch (err) {
       document.getElementById("message").innerHTML = "Catch inner: " + err.message;
     }
     //document.getElementById("message").innerHTML = "Catch 1 : " + err.message;
   }
-  
+
   console.log(url)
-  
+
   getUrl(url)
     .then((data) => {
       console.log(data);
@@ -48,6 +48,7 @@ function formdata(){
       document.getElementById("about").href = "https://" + serverName + "/about";
       document.getElementById("local").href = "https://" + serverName + "/public/local";
       document.getElementById("federated").href = "https://" + serverName + "/public";
+      document.getElementById("blocked").href = "https://" + serverName + "/api/v1/instance/domain_blocks";
       hidewarningFunction()
       displayCardFunction()
     })
@@ -57,46 +58,46 @@ function formdata(){
       document.getElementById("error").innerHTML = "Failed to connect";
       displaywarningFunction()
     });
-  
-  
-  }//ends main click function
+
+
+}//ends main click function
   
   // make get request
-  function getUrl(url) {
-    return fetch(url) // return this promise
-      .then((response) => response.json());
-  }
-  
-  
-  // Enter on Submit
-  var input = document.getElementById("searchText");
-  
-  // Execute a function when the user presses a key on the keyboard
-  input.addEventListener("keypress", function(event) {
-    // If the user presses the "Enter" key on the keyboard
-    if (event.key === "Enter") {
-      // Cancel the default action, if needed
-      event.preventDefault();
-      // Trigger the button element with a click
-      document.getElementById("enterBtn").click();
-    }
-  });
+function getUrl(url) {
+  return fetch(url) // return this promise
+    .then((response) => response.json());
+}
 
-  function displayCardFunction() {
-    var T = document.getElementById("serverCard");
-    T.style.display = "block";  // <-- Set it to block
-  }
+  
+// Enter on Submit
+var input = document.getElementById("searchText");
 
-  function hideCardFunction() {
-    var T = document.getElementById("serverCard");
-    T.style.display = "none";  // <-- Set it to block
+// Execute a function when the user presses a key on the keyboard
+input.addEventListener("keypress", function (event) {
+  // If the user presses the "Enter" key on the keyboard
+  if (event.key === "Enter") {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("enterBtn").click();
   }
+});
 
-  function displaywarningFunction() {
-    var errorDiv = document.getElementById("errorDiv");
-    errorDiv.style.display = "block";  // <-- Set it to block
-  }
-  function hidewarningFunction() {
-    var hideerrorDiv = document.getElementById("errorDiv");
-    hideerrorDiv.style.display = "none";  // <-- Set it to block
-  }
+function displayCardFunction() {
+  var T = document.getElementById("serverCard");
+  T.style.display = "block";  // <-- Set it to block
+}
+
+function hideCardFunction() {
+  var T = document.getElementById("serverCard");
+  T.style.display = "none";  // <-- Set it to block
+}
+
+function displaywarningFunction() {
+  var errorDiv = document.getElementById("errorDiv");
+  errorDiv.style.display = "block";  // <-- Set it to block
+}
+function hidewarningFunction() {
+  var hideerrorDiv = document.getElementById("errorDiv");
+  hideerrorDiv.style.display = "none";  // <-- Set it to block
+}
