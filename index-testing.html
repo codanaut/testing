@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lemmy Sever Info</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
+
+  <!--<link href="styles.css" rel="stylesheet">-->
+</head>
+
+<body>
+<div class="text-center">
+  <h1>Lemmy Server Info</h1>
+  <!--<input name="searchText" type="text" id="searchText" size="50" value="https://mastodon.social/api/v1/streaming/public">
+  <input type="submit" value="Submit" onclick="formdata()"/>-->
+</div>
+
+<div class="container w-lg-75">
+<div class="row mx-auto">
+  <div class="col-sm-12 col-lg-11">
+    <div class="form-floating">
+      <input type="url" class="form-control" id="searchText" value="https://lemmy.ml">
+      <label for="searchText">Instance URL</label>
+    </div>
+  </div>
+  <div class="col-sm-12 col-lg-1 gy-2 p-0">
+    <button type="submit" class="btn btn-primary w-100" id="enterBtn" onclick="formdata()">Search</button>
+  </div>
+</div>
+</div>
+<div id="errorDiv" class="container mt-4 mb-4 text-center" style="display:none"><h2 id="error"></h2></div>
+<div id="mainDiv" class="container mt-4 mb-4 text-center">
+    
+    <div class="card text-center border border-primary shadow-0 mx-auto w-sm-100 w-lg-50" id="serverCard" style="display:none">
+      <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+        
+        <a id="imgLNK" href="#!">
+          <img id="imgSRC" src="" class="img-fluid w-25" />
+          <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+        </a>
+      </div>
+      <div class="card-header"><h1 id="serverName" ></h1></div>
+      <div class="card-body">
+        <p class="card-text">
+          <span id="description" ></span>
+        </p>
+      </div>
+      
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><span id="counts_communities"></span></li>
+        <li class="list-group-item"><span id="counts_posts"></span></li>
+        <li class="list-group-item"><span id="counts_comments"></span></li>
+        <li class="list-group-item"><span id="counts_users"></span></li>
+        <li class="list-group-item"><span id="counts_users_active_day"></span></li>
+        <li class="list-group-item"><span id="counts_users_active_week"></span></li>
+        <li class="list-group-item"><span id="counts_users_active_month"></span></li>
+        <li class="list-group-item"><span id="counts_users_active_half_year"></span></li>
+      </ul>
+      <h2 class="pt-2">Server Config</h2>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><span id="local_site_actor_name_max_length"></span></li>
+        <li class="list-group-item"><span id="local_site_application_email_admins"></span></li>
+        <li class="list-group-item"><span id="local_site_application_question"></span></li>
+        <li class="list-group-item"><span id="local_site_captcha_difficulty"></span></li>
+        <li class="list-group-item"><span id="local_site_captcha_enabled"></span></li>
+        <li class="list-group-item"><span id="local_site_community_creation_admin_only"></span></li>
+        <li class="list-group-item"><span id="local_site_default_post_listing_type"></span></li>
+        <li class="list-group-item"><span id="local_site_default_theme"></span></li>
+        <li class="list-group-item"><span id="local_site_enable_downvotes"></span></li>
+        <li class="list-group-item"><span id="local_site_enable_nsfw"></span></li>
+        <li class="list-group-item"><span id="local_site_federation_enabled"></span></li>
+        <li class="list-group-item"><span id="local_site_federation_worker_count"></span></li>
+        <li class="list-group-item"><span id="local_site_hide_modlog_mod_names"></span></li>
+        <li class="list-group-item"><span id="local_site_id"></span></li>
+        <li class="list-group-item"><span id="local_site_private_instance"></span></li>
+        <li class="list-group-item"><span id="local_site_published"></span></li>
+        <li class="list-group-item"><span id="local_site_registration_mode"></span></li>
+        <li class="list-group-item"><span id="local_site_reports_email_admins"></span></li>
+        <li class="list-group-item"><span id="local_site_require_email_verification"></span></li>
+        <li class="list-group-item"><span id="local_site_site_id"></span></li>
+        <li class="list-group-item"><span id="local_site_site_setup"></span></li>
+        <li class="list-group-item"><span id="local_site_slur_filter_regex"></span></li>
+        <li class="list-group-item"><span id="local_site_updated"></span></li>
+      </ul>
+      <h2 class="pt-2">Server Limits</h2>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><span id="local_site_rate_limit_comment"></span></li>
+        <li class="list-group-item"><span id="local_site_rate_limit_comment_per_second"></span></li>
+        <li class="list-group-item"><span id="local_site_rate_limit_id"></span></li>
+        <li class="list-group-item"><span id="local_site_rate_limit_image"></span></li>
+        <li class="list-group-item"><span id="local_site_rate_limit_image_per_second"></span></li>
+        <li class="list-group-item"><span id="local_site_rate_limit_local_site_id"></span></li>
+        <li class="list-group-item"><span id="local_site_rate_limit_message"></span></li>
+        <li class="list-group-item"><span id="local_site_rate_limit_message_per_second"></span></li>
+        <li class="list-group-item"><span id="local_site_rate_limit_post"></span></li>
+        <li class="list-group-item"><span id="local_site_rate_limit_post_per_second"></span></li>
+        <li class="list-group-item"><span id="local_site_rate_limit_published"></span></li>
+        <li class="list-group-item"><span id="local_site_rate_limit_register"></span></li>
+        <li class="list-group-item"><span id="local_site_rate_limit_register_per_second"></span></li>
+        <li class="list-group-item"><span id="local_site_rate_limit_search"></span></li>
+        <li class="list-group-item"><span id="local_site_rate_limit_search_per_second"></span></li>
+      </ul>
+      <h2 class="pt-2">Server Info</h2>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><span id="site_name"></span></li>
+        <li class="list-group-item"><span id="site_actor_id"></span></li>
+        <li class="list-group-item"><span id="site_description"></span></li>
+        <li class="list-group-item"><span id="site_icon"></span></li>
+        <li class="list-group-item"><span id="site_inbox_url"></span></li>
+        <li class="list-group-item"><span id="site_sidebar"></span></li>
+        <li class="list-group-item"><span id="site_id"></span></li>
+        <li class="list-group-item"><span id="site_instance_id"></span></li>
+        <li class="list-group-item"><span id="site_public_key"></span></li>
+        <li class="list-group-item"><span id="site_last_refreshed_at"></span></li>
+        <li class="list-group-item"><span id="site_published"></span></li>
+        <li class="list-group-item"><span id="site_updated"></span></li>
+      </ul>
+      
+      
+      <div class="card-footer">
+        <a id="local" href="#" class="card-link">Local Feed</a>
+        <a id="federated" href="#" class="card-link">Federated Feed</a>
+      </div>
+    </div>
+
+</div>
+
+
+<script src="server-info-flask-api.js"></script>
+</body>
+</html>
