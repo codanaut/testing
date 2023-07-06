@@ -27,7 +27,7 @@ function formdata() {
   //  });
 
   // using proxy server to bypass cors errors. 
-  var finalURL = "http://proxy.codanaut.com/proxy?url=" + url
+  var finalURL = "https://proxy.codanaut.com/proxy?url=" + url
   console.log(finalURL)
 
   getUrl(finalURL)
