@@ -26,8 +26,8 @@ function formdata() {
   //    console.log(data)
   //  });
 
-  //var finalURL = "http://localhost:4000/proxy?url=" + url
-  var finalURL = url
+  // using proxy server to bypass cors errors. 
+  var finalURL = "http://167.114.115.171:4000/proxy?url=" + url
   console.log(finalURL)
 
   getUrl(finalURL)
