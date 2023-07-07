@@ -1,0 +1,200 @@
+
+body {
+  background-color: #000000;
+  color: white;
+}
+
+a:link { text-decoration: none; color: white;}
+
+a:visited { text-decoration: none; color: white; }
+
+a:hover { text-decoration: none; }
+
+a:active { text-decoration: none; }
+
+/* User Page*/
+#comments {
+  padding-top: 5%;
+}
+
+#posts {
+  padding-top: 5%;
+}
+
+#noUser {
+  padding-top: 10%;
+}
+
+#noUser i {
+  width: 100%;
+  height: 100%;
+}
+
+.profilepic img{
+  max-width: 85%;
+  max-height: 100%;
+}
+
+/* Cards*/
+
+.card {
+  background-color: #212121;
+  margin-top: 4%;
+}
+
+.card-header {
+  border-bottom-width: 3px;
+  border-width: 45%;
+}
+
+.card-footer {
+    align-items: center;
+    border-top-width: 3px;
+  }
+
+.card-footer col{
+  display: inline;
+}
+  
+.card-footer i{
+    margin-left: 2%;
+}
+
+  .card-footer span {
+    margin-right: 10px;
+  }
+  
+
+  /* enlarge post image */
+  .card-img.enlarged {
+    transform: scale(1.5);
+    padding: 3em;
+  }
+
+  /* Format the markdown sections*/
+  .markdown img {
+    /* Your custom styles for images within .markdown */
+    /* For example, let's add a border and increase the size */
+    border: 1px solid black;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+    .w-sm-100 {
+    width:100%!important;
+    }
+    .w-sm-75 {
+    width:75%!important;
+    }
+    .w-sm-50 {
+    width:50%!important;
+    }
+    .w-sm-25 {
+    width:25%!important;
+    }
+    .h-sm-100 {
+    height:100%!important;
+    }
+    .h-sm-75 {
+    height:75%!important;
+    }
+    .h-sm-50 {
+    height:50%!important;
+    }
+    .h-sm-25 {
+    height:25%!important;
+    }
+    }
+    
+    /* Medium devices (tablets, 768px and up)*/
+    @media (min-width: 768px) {
+    .w-md-100 {
+    width:100%!important;
+    }
+    .w-md-75 {
+    width:75%!important;
+    }
+    .w-md-50 {
+    width:50%!important;
+    }
+    .w-md-25 {
+    width:25%!important;
+    }
+    .h-md-100 {
+    height:100%!important;
+    }
+    .h-md-75 {
+    height:75%!important;
+    }
+    .h-md-50 {
+    height:50%!important;
+    }
+    .h-md-25 {
+    height:25%!important;
+    }
+    }
+    
+    /* Large devices (desktops, 992px and up)*/
+    @media (min-width: 992px) {
+    .w-lg-100 {
+    width:100%!important;
+    }
+    .w-lg-75 {
+    width:75%!important;
+    }
+    .w-lg-50 {
+    width:50%!important;
+    }
+    .w-lg-25 {
+    width:25%!important;
+    }
+    .h-lg-100 {
+    height:100%!important;
+    }
+    .h-lg-75 {
+    height:75%!important;
+    }
+    .h-lg-50 {
+    height:50%!important;
+    }
+    .h-lg-25 {
+    height:25%!important;
+    }
+
+    .card {
+      width: 50%!important;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    }
+    
+    /* Extra large devices (large desktops, 1200px and up)*/
+    @media (min-width: 1200px) {
+    .w-xl-100 {
+    width:100%!important;
+    }
+    .w-xl-75 {
+    width:75%!important;
+    }
+    .w-xl-50 {
+    width:50%!important;
+    }
+    .w-xl-25 {
+    width:25%!important;
+    }
+    .h-xl-100 {
+    height:100%!important;
+    }
+    .h-xl-75 {
+    height:75%!important;
+    }
+    .h-xl-50 {
+    height:50%!important;
+    }
+    .h-xl-25 {
+    height:25%!important;
+    }
+    }
